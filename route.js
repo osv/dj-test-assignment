@@ -13,5 +13,7 @@ Router.route('/', {
 
 Router.route('/clients', {
   name: 'clients',
-
+  data: function() {
+    return Clients.find();
+  }
 });
