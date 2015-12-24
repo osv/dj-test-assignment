@@ -1,0 +1,41 @@
+<template name="orders">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>
+        Orders
+        <span class="pull-right">
+          <button class="btn btn-primary">
+            <i class="glyphicon glyphicon-plus"></i>
+            Create Order
+          </button>
+        </span>
+      </h1>
+    </div>
+    <div class="col-md-12">
+      <table class="table table-bordered table-striped table-condensed">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Weight</th>
+            <th>Destination</th>
+            <th>Client</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- this is cursor to Orders.find() -->
+          {{#each this}}
+          <tr>
+            <td>{{_id}}</td>
+            <td>{{name}}</td>
+            <td>{{weight}}</td>
+            <td>{{destination}}</td>
+            <td>{{clientNameById client_id}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</template>
