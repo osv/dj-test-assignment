@@ -33,7 +33,7 @@ Template.ordersCreateModal.events({
     }, function(err) {
       lastErrorVar.set('');
       if (err) {
-        lastErrorVar.lastError.set(err);
+        lastErrorVar.set(err);
         console.log('Fail to create', err);
       } else {
         // looks ok, hide modal
