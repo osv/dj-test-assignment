@@ -18,4 +18,4 @@ endpoint).
  
 The design should look similar to the attached:
 
-[screenshot](./public/img/dj.png)
+![screenshot](./public/img/dj.png)
