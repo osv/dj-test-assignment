@@ -16,6 +16,12 @@
       <div class="collapse navbar-collapse" id="collapse-navbar">
         <ul class="nav navbar-nav">
           <li data-toggle="tooltip" title="Show your orders">
+            <a class="{{isActiveRoute 'clients'}}"
+               href="{{pathFor route='clients'}}">
+              Clients
+            </a>
+          </li>
+          <li data-toggle="tooltip" title="Show your orders">
             <a class="{{isActiveRoute 'orders'}}"
                href="{{pathFor route='orders'}}">
               Orders
