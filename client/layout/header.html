@@ -15,6 +15,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="collapse-navbar">
         <ul class="nav navbar-nav">
+          {{#if currentUser }}
           <li data-toggle="tooltip" title="Show your orders">
             <a class="{{isActiveRoute 'clients'}}"
                href="{{pathFor route='clients'}}">
@@ -27,6 +28,7 @@
               Orders
             </a>
           </li>
+          {{/if}}
         </ul>
 	      <ul class="nav navbar-nav navbar-right">
           {{ > loginButtons}}
