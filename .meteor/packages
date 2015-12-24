@@ -24,4 +24,4 @@ zimme:active-route              # show active route
 ian:accounts-ui-bootstrap-3
 accounts-password
 reactive-var
-
+momentjs:moment

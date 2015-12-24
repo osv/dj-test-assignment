@@ -4,7 +4,12 @@ Template.orders.helpers({
     var fallbackClientName = '- ' + id,
         client = Clients.findOne(id) || {name: fallbackClientName };
     return client.name;
-  }
+  },
+
+  timeFromNow: function() {
+    var time = this.createdAt;
+    return moment(time).fromNow();
+  },
 });
 
 Template.orders.events({
