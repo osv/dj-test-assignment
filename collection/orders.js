@@ -6,17 +6,28 @@ var schema = new SimpleSchema({
     type: String,
   },
   weight: {
-    type: String
+    type: Number,
+    min: 0.1,
+    decimal:true,
   },
   destination: {
-    type: String
+    type: String,
   },
   client_id: {
+    label: 'Client',
     type: String,
   },
   userId: {                     // Owner of order
     type: String,
-  }
+  },
+  createdAt: {
+    type: Date,
+    denyUpdate: true,
+    autoValue: function() {
+      return new Date();
+    }
+  },
+
 });
 
 Orders.attachSchema(schema);
