@@ -21,6 +21,7 @@
             <th>Destination</th>
             <th>Client</th>
             <th>Created</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -33,6 +34,25 @@
             <td>{{destination}}</td>
             <td>{{clientNameById client_id}}</td>
             <td>{{timeFromNow createdAt}}</td>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-default btn-sm" data-toggle="dropdown" >
+                  <i class="glyphicon glyphicon-cog"></i>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a data-action="edit" href="#">
+                      Edit
+                    </a>
+                  </li>
+                  <li>
+                    <a data-action="rm" href="#">
+                      Remove
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </td>
           </tr>
           {{/each}}
         </tbody>
