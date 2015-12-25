@@ -19,3 +19,10 @@ endpoint).
 The design should look similar to the attached:
 
 ![screenshot](./public/img/dj.png)
+
+# Setup
+
+```
+curl https://install.meteor.com/ | sh
+meteor
+```
