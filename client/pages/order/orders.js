@@ -17,4 +17,13 @@ Template.orders.events({
     e.preventDefault();
     $('#orderCreateModal').modal('show');
   },
+
+  'click [data-action="rm"]': function(e, t) {
+    var id = this._id,
+        orderName = this.name;
+
+    if(confirm('Do you really want to remove order "' + orderName + '"')) {
+      Orders.remove(id);
+    }
+  },
 });
