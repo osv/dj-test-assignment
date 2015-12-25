@@ -37,3 +37,12 @@ Template.orders.events({
     }
   },
 });
+
+Template.sortHeader.events({
+  'click [data-action="sort"]': function(e, t) {
+    e.preventDefault();
+    var sortBy = this.sortBy;
+
+    Router.go('orders', {}, {query: {sort: sortBy}});
+  },
+})

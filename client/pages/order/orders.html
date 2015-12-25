@@ -16,11 +16,11 @@
         <thead>
           <tr>
             <th>id</th>
-            <th>Name</th>
-            <th>Weight</th>
-            <th>Destination</th>
-            <th>Client</th>
-            <th>Created</th>
+            {{> sortHeader sortBy='name' title='Name'}}
+            {{> sortHeader sortBy='weight' title='Weight'}}
+            {{> sortHeader sortBy='destination' title='Destination'}}
+            {{> sortHeader sortBy='client_id' title='Client'}}
+            {{> sortHeader sortBy='createdAt' title='Created'}}
             <th>Action</th>
           </tr>
         </thead>
@@ -63,4 +63,13 @@
   </div>
 
   {{> ordersCreateModal}}
+</template>
+
+<template name="sortHeader">
+  <td data-action="sort">
+    <a href="#">
+      <i class="glyphicon glyphicon-sort"></i>
+      {{title}}
+    </a>
+  </td>
 </template>

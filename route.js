@@ -24,6 +24,13 @@ Router.route('/orders', {
     return Meteor.subscribe('mine-orders');
   },
   data: function() {
-    return Orders.find();
+    var sortField = this.params.query.sort,
+        options = {sort: {}};
+
+    if (sortField) {
+      options.sort[sortField] = 1;
+    }
+
+    return Orders.find({}, options);
   }
 });
