@@ -1,3 +1,8 @@
+/*
+ * This modal is used for create and edit order.
+ *
+ * To edit - set into session variable "formData" order item for edit.
+ */
 
 Template.ordersCreateModal.onCreated(function() {
   this.lastError = new ReactiveVar();
