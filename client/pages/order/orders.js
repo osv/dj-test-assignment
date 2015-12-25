@@ -15,6 +15,16 @@ Template.orders.helpers({
 Template.orders.events({
   'click [data-action="createOrder"]': function(e, t) {
     e.preventDefault();
+    Session.set('formData', {}); // not formData - create
+    $('#orderCreateModal').modal('show');
+  },
+
+  'click [data-action="edit"]': function(e, t) {
+    e.preventDefault();
+    var order = this,
+        editableOrder = _.pick(order, '_id', 'name', 'client_id', 'destination', 'weight');
+
+    Session.set('formData', editableOrder); // fill formData - update modal
     $('#orderCreateModal').modal('show');
   },
 

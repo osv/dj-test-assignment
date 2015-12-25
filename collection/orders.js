@@ -21,10 +21,17 @@ var schema = new SimpleSchema({
     type: String,
   },
   createdAt: {
+    label: 'Creat time',
     type: Date,
     denyUpdate: true,
     autoValue: function() {
-      return new Date();
+    if (this.isInsert) {
+        return new Date();
+      } else if (this.isUpsert) {
+        return {$setOnInsert: new Date()};
+      } else {
+        this.unset();  // Prevent user from supplying their own value
+      }
     }
   },
 

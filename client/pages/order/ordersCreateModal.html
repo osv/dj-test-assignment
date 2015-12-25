@@ -4,31 +4,39 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <h4 class="modal-title">Create new order</h4>
+          <h4 class="modal-title">
+            {{#if formData}}
+              Edit order
+            {{else}}
+              Create new order
+            {{/if}}
+          </h4>
         </div>
 
         <div class="modal-body">
           <form class="form">
             <div class="form-group">
               <label for="name">Name:</label>
-              <input class="form-control" type="text" id="name" />
+              <input class="form-control" type="text" id="name" value="{{formData.name}}"/>
             </div>
             <div class="form-group">
               <label for="weight">Weight:</label>
-              <input class="form-control" type="number" id="weight" step="0.1"/>
+              <input class="form-control" type="number" id="weight" step="0.1" value="{{formData.weight}}"/>
             </div>
             <div class="form-group">
               <label for="client">Client:</label>
               <select class="form-control" id="client">
-                <option selected disabled>- Select client -</option>
+                {{#unless formData.client_id}}
+                  <option selected disabled>- Select client -</option>
+                {{/unless}}
                 {{#each clients}}
-                  <option value="{{_id}}">{{name}}</option>
+                  <option {{isSelected _id formData.client_id }} value="{{_id}}">{{name}}</option>
                 {{/each}}
               </select>
             </div>
             <div class="form-group">
               <label for="destination">Destination</label>
-              <textarea class="form-control" id="destination" cols="30" rows="3"></textarea>
+              <textarea class="form-control" id="destination" cols="30" rows="3">{{formData.destination}}</textarea>
             </div>
           </form>
         </div>
@@ -37,7 +45,14 @@
           {{#if lastError}}
             <div class="alert alert-danger" role="alert">{{ lastError }}</div>
           {{/if}}
-          <button type="button" class="btn btn-primary" data-action="save" id="save">Save</button>
+
+          <button type="button" class="btn btn-primary" data-action="save" id="save">
+            {{#if formData}}
+              Update
+            {{else}}
+              Save
+            {{/if}}
+          </button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         </div>
       </div>
